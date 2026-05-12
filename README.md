@@ -13,3 +13,9 @@ scoop bucket add hk https://github.com/hkdemiralp/scoop-hk-bucket
 ~~~powershell
 scoop install hk/bettertrumpet
 ~~~
+
+## Packages
+
+| Package | Description |
+|---|---|
+| bettertrumpet | A refined fork of EarTrumpet with enhanced Windows volume mixer features. |
