@@ -4,7 +4,7 @@
   "homepage": "https://github.com/xammen/BetterTrumpet",
   "license": "MIT",
   "url": "https://github.com/xammen/BetterTrumpet/releases/download/v3.0.12/BetterTrumpet-3.0.12-portable.zip",
-  "hash": "F7AD88047D1FCAEB91BC33FD48B032C3176710EC1E6F3B4B07A16EED18AB2B4D",
+  "hash": "f7ad88047d1fcaeb91bc33fd48b032c3176710ec1e6f3b4b07a16eed18ab2b4d",
   "bin": "BetterTrumpet.exe",
   "shortcuts": [
     [
