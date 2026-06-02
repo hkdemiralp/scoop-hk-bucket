@@ -70,3 +70,28 @@ git push
 The update script intentionally does not commit or push changes automatically.
 
 This keeps the update process reviewable and avoids publishing accidental manifest changes.
+
+## Release update workflow
+
+When a new upstream version is released, update the related manifest with the local helper script.
+
+### Update one package
+
+```powershell
+nu .\scripts\update-package.nu bettertrumpet
+git diff -- bucket/bettertrumpet.json
+git add bucket/bettertrumpet.json
+git commit -m "build(bettertrumpet): update to 3.0.13"
+git push
+scoop update
+scoop update bettertrumpet
+```
+
+### Update all configured packages
+
+```powershell
+nu .\scripts\update-package.nu all-packages
+git diff -- bucket
+```
+
+Review the diff carefully before committing. The update helper only updates manifest files and shows diffs. It does not run Scoop update commands, commit changes, or push to GitHub.
