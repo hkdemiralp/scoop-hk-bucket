@@ -1,0 +1,9 @@
+{
+  "bettertrumpet": {
+    "repo": "xammen/BetterTrumpet",
+    "manifest": "bucket/bettertrumpet.json",
+    "asset_template": "BetterTrumpet-{version}-portable.zip",
+    "tag_prefix": "v",
+    "hash_source": "github_asset_digest"
+  }
+}

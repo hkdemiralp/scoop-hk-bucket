@@ -19,3 +19,7 @@ scoop install hk/bettertrumpet
 | Package | Description |
 |---|---|
 | bettertrumpet | A refined fork of EarTrumpet with enhanced Windows volume mixer features. |
+
+## Maintainer documentation
+
+Maintenance script usage is documented in [docs/maintenance-scripts.md](docs/maintenance-scripts.md).
