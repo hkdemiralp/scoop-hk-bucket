@@ -1,10 +1,10 @@
 {
-  "version": "3.0.11",
+  "version": "3.0.12",
   "description": "A refined fork of EarTrumpet with enhanced Windows volume mixer features.",
   "homepage": "https://github.com/xammen/BetterTrumpet",
   "license": "MIT",
-  "url": "https://github.com/xammen/BetterTrumpet/releases/download/v3.0.11/BetterTrumpet-3.0.11-portable.zip",
-  "hash": "8D4A20898909DE76A4D2BE2FA49FCABD858CEA8656209AFBEF348F0D8B86E324",
+  "url": "https://github.com/xammen/BetterTrumpet/releases/download/v3.0.12/BetterTrumpet-3.0.12-portable.zip",
+  "hash": "F7AD88047D1FCAEB91BC33FD48B032C3176710EC1E6F3B4B07A16EED18AB2B4D",
   "bin": "BetterTrumpet.exe",
   "shortcuts": [
     [
