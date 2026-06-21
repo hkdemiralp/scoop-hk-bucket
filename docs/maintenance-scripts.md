@@ -6,7 +6,7 @@ This document explains the local helper scripts used to maintain package manifes
 
 ```text
 scripts/packages.json
-scripts/update-package.nu
+scripts/update-scoop-manifest.ps1
 ```
 
 ## Package update configuration
@@ -36,7 +36,7 @@ This reads the SHA256 digest exposed by GitHub release assets. The script does n
 ## Update one package
 
 ```powershell
-nu .\scripts\update-package.nu bettertrumpet
+.\scripts\update-scoop-manifest.ps1 bettertrumpet
 ```
 
 This updates the following fields inside the related Scoop manifest:
@@ -50,7 +50,7 @@ The script then shows a Git diff for review.
 ## Update all configured packages
 
 ```powershell
-nu .\scripts\update-package.nu all-packages
+.\scripts\update-scoop-manifest.ps1 all-packages
 ```
 
 This updates every package defined in `scripts/packages.json`.
@@ -78,7 +78,7 @@ When a new upstream version is released, update the related manifest with the lo
 ### Update one package
 
 ```powershell
-nu .\scripts\update-package.nu bettertrumpet
+.\scripts\update-scoop-manifest.ps1 bettertrumpet
 git diff -- bucket/bettertrumpet.json
 git add bucket/bettertrumpet.json
 git commit -m "build(bettertrumpet): update to 3.0.13"
@@ -90,7 +90,7 @@ scoop update bettertrumpet
 ### Update all configured packages
 
 ```powershell
-nu .\scripts\update-package.nu all-packages
+.\scripts\update-scoop-manifest.ps1 all-packages
 git diff -- bucket
 ```
 
