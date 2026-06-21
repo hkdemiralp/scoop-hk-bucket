@@ -95,3 +95,26 @@ git diff -- bucket
 ```
 
 Review the diff carefully before committing. The update helper only updates manifest files and shows diffs. It does not run Scoop update commands, commit changes, or push to GitHub.
+
+## Update installed Scoop apps
+
+Use this helper to update Scoop apps installed on the current Windows system:
+
+```powershell
+.\scripts\update-installed-scoop-apps.ps1
+```
+
+This script is different from `update-scoop-manifest.ps1`.
+
+`update-scoop-manifest.ps1` updates bucket manifest files in this repository.
+`update-installed-scoop-apps.ps1` updates apps already installed on the local machine.
+
+For managed GUI or tray apps, the script can close the running process before update and restart it afterwards only if it was already running.
+
+Currently managed apps:
+
+```txt
+bettertrumpet
+super-productivity
+```
+
