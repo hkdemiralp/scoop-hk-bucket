@@ -1,0 +1,23 @@
+{
+  "version": "1.3.0.r13143",
+  "description": "Double Commander snapshot build, a cross-platform open-source two-panel file manager.",
+  "homepage": "https://doublecmd.sourceforge.io/",
+  "license": "GPL-2.0-or-later",
+  "url": "https://github.com/doublecmd/snapshots/releases/download/13143/doublecmd-1.3.0.r13143.x86_64-win64.7z",
+  "hash": "5279b1385b86cdcbf9e1ee4e9e57562e856ef85efef5cf51670e8506683614a0",
+  "bin": [
+    [
+      "doublecmd.exe",
+      "doublecmd-snapshot",
+      "--config-dir=\"$persist_dir\\settings\""
+    ]
+  ],
+  "shortcuts": [
+    [
+      "doublecmd.exe",
+      "Double Commander Snapshot",
+      "--config-dir=\"$persist_dir\\settings\" --no-splash"
+    ]
+  ],
+  "persist": "settings"
+}
