@@ -1,0 +1,59 @@
+{
+  "package": "doublecmd-addons",
+  "sources": [
+    {
+      "name": "edge-viewer",
+      "type": "wlx",
+      "status": "core",
+      "version": "1.1.0",
+      "repo": "rg-software/wlx-edge-viewer",
+      "asset_template": "wlx-edge-viewer-v{version}.zip",
+      "url": "https://github.com/rg-software/wlx-edge-viewer/releases/download/v1.1.0/wlx-edge-viewer-v1.1.0.zip",
+      "hash": "2002dea22d13de186b52b7bc0191f2407b7ffd0824c336b80cf9c1d24bdcc68d",
+      "hash_algorithm": "sha256",
+      "version_source": {
+        "type": "github_latest_release",
+        "tag_prefix": "v"
+      },
+      "license": "MIT",
+      "target_dir": "plugins/wlx/edge-viewer",
+      "required_files": [
+        "EdgeViewer.wlx",
+        "EdgeViewer.wlx64",
+        "edgeviewer.ini",
+        "pluginst.inf",
+        "assets/markdown/marked.umd.js",
+        "assets/mermaid/mermaid.min.js",
+        "assets/mathjax/tex-svg.js"
+      ]
+    },
+    {
+      "name": "adbplugin-windows",
+      "type": "wfx",
+      "status": "core",
+      "version": "8.11",
+      "url": "https://www.uniqtec.eu/download/adb/adbplugin-windows.zip",
+      "hash": "d48f7c2ac6e3897659740984941a7d5eea3e730c16de82806227686e8d3baf2e",
+      "hash_algorithm": "sha256",
+      "version_source": {
+        "type": "archive_text_first_line",
+        "path": "readme.txt"
+      },
+      "license": "Freeware",
+      "license_notes": "Exact copies may be distributed. Plugin files must not be modified.",
+      "target_dir": "plugins/wfx/adbplugin-windows",
+      "required_files": [
+        "ADBPlugin.wfx",
+        "ADBPlugin.wfx64",
+        "license.txt",
+        "pluginst.inf",
+        "readme.txt",
+        "bin/aapt.exe",
+        "bin/adb.exe",
+        "bin/ADBHelper.apk",
+        "bin/AdbWinApi.dll",
+        "bin/AdbWinUsbApi.dll"
+      ]
+    }
+  ]
+}
