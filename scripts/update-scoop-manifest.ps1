@@ -6,6 +6,42 @@ param(
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
+function Get-OptionalStringProperty {
+    param(
+        [Parameter(Mandatory)]
+        [pscustomobject]$Object,
+
+        [Parameter(Mandatory)]
+        [string]$Name,
+
+        [string]$Default = ""
+    )
+
+    $property = $Object.PSObject.Properties[$Name]
+    if ($null -eq $property -or $null -eq $property.Value) {
+        return $Default
+    }
+
+    return [string]$property.Value
+}
+
+function Resolve-Template {
+    param(
+        [Parameter(Mandatory)]
+        [string]$Template,
+
+        [Parameter(Mandatory)]
+        [hashtable]$Values
+    )
+
+    $result = $Template
+    foreach ($key in $Values.Keys) {
+        $result = $result.Replace("{$key}", [string]$Values[$key])
+    }
+
+    return $result
+}
+
 $RepoRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 $ConfigPath = Join-Path $RepoRoot "scripts/packages.json"
 
@@ -42,7 +78,8 @@ function Update-ScoopManifest {
     $repo = [string]$PackageConfig.repo
     $manifestRelativePath = [string]$PackageConfig.manifest
     $assetTemplate = [string]$PackageConfig.asset_template
-    $tagPrefix = if ($PackageConfig.tag_prefix) { [string]$PackageConfig.tag_prefix } else { "" }
+    $tagPrefix = Get-OptionalStringProperty -Object $PackageConfig -Name "tag_prefix" -Default ""
+    $versionTemplate = Get-OptionalStringProperty -Object $PackageConfig -Name "version_template" -Default "{tag}"
 
     $apiUrl = "https://api.github.com/repos/$repo/releases/latest"
 
@@ -56,17 +93,26 @@ function Update-ScoopManifest {
             "User-Agent" = "scoop-hk-bucket-manifest-updater"
         }
 
-    $tag = [string]$release.tag_name
-    if (-not $tag) {
+    $rawTag = [string]$release.tag_name
+    if (-not $rawTag) {
         throw "Latest release for '$repo' does not include tag_name"
     }
 
-    $version = $tag
-    if ($tagPrefix -and $version.StartsWith($tagPrefix)) {
-        $version = $version.Substring($tagPrefix.Length)
+    $tag = $rawTag
+    if ($tagPrefix -and $tag.StartsWith($tagPrefix)) {
+        $tag = $tag.Substring($tagPrefix.Length)
     }
 
-    $assetName = $assetTemplate.Replace("{version}", $version)
+    $version = Resolve-Template -Template $versionTemplate -Values @{
+        tag = $tag
+        raw_tag = $rawTag
+    }
+
+    $assetName = Resolve-Template -Template $assetTemplate -Values @{
+        tag = $tag
+        raw_tag = $rawTag
+        version = $version
+    }
     $asset = $release.assets | Where-Object { $_.name -eq $assetName } | Select-Object -First 1
 
     if (-not $asset) {
