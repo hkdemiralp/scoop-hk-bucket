@@ -117,4 +117,3 @@ Currently managed apps:
 bettertrumpet
 super-productivity
 ```
-
