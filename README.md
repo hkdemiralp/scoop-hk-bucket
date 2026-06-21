@@ -1,25 +1,39 @@
-# Hakan's Scoop Bucket
+# Keenblade Scoop Bucket
 
-Personal Scoop bucket for Windows packages not available in official buckets.
+Personal Scoop bucket for Windows packages and portable tools maintained by Hakan Demiralp.
 
 ## Add bucket
 
-~~~powershell
-scoop bucket add hk https://github.com/hkdemiralp/scoop-hk-bucket
-~~~
+```powershell
+scoop bucket add keenblade https://github.com/hkdemiralp/scoop-hk-bucket
+```
 
 ## Install packages
 
-~~~powershell
-scoop install hk/bettertrumpet
-~~~
+```powershell
+scoop install keenblade/bettertrumpet
+scoop install keenblade/doublecmd-snapshot
+```
 
-## Packages
+## Available packages
 
 | Package | Description |
 |---|---|
-| bettertrumpet | A refined fork of EarTrumpet with enhanced Windows volume mixer features. |
+| `bettertrumpet` | BetterTrumpet portable package. |
+| `doublecmd-snapshot` | Double Commander snapshot build with persistent settings. |
 
-## Maintainer documentation
+## Maintenance
 
-Maintenance script usage is documented in [docs/maintenance-scripts.md](docs/maintenance-scripts.md).
+This repository includes helper scripts for maintaining package manifests and locally installed Scoop apps.
+
+See:
+
+```text
+docs/maintenance-scripts.md
+```
+
+## License
+
+This repository is licensed under the MIT License.
+
+Package manifests may refer to third-party software distributed under their own licenses.
